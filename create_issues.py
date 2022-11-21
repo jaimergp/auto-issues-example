@@ -114,21 +114,46 @@ def _cli():
     )
     p.add_argument(
         "--repo",
-        required=True,
+        default=None,
         help="Github repository where issues must be created. "
-        "Must follow format <owner>/<repo>."
+        "Must follow format <owner>/<repo>. Not required if --dry_run is used."
+    )
+    p.add_argument(
+        '--dry-run',
+        action="store_true",
+        help="Do not create issues, labels or milestones, but list some stats."
     )
     return p.parse_args()
 
 
-def create_issues(path, repo):
+def create_issues(path, repo, dry_run=True):
+    if not repo and not dry_run:
+        raise ValueError("'repo' must be set unless 'dry_run' is True")
+    all_labels = set()
+    all_milestones = set()
+    n_issues = 0
     for dirpath, directories, filenames in os.walk(path):
         for filename in sorted(filenames):
             abs_filename = os.path.join(dirpath, filename)
             if filename.startswith("_"):
-                print("[ i ] Ignoring", abs_filename, file=sys.stderr)
+                print(f"[ i ] Ignoring '{abs_filename}' (starts with underscore)", file=sys.stderr)
                 continue
             doc = frontmatter.load(abs_filename)
+            if not doc.metadata:
+                print(f"[ i ] Ignoring '{abs_filename}' (no frontmatter)", file=sys.stderr)
+                continue
+            if dry_run:
+                print(f"[ i ] Would create issue for '{abs_filename}'.")
+                labels = doc.get("labels") or ()
+                milestone = doc.get("milestone")
+                print("      Title:", doc['title'])
+                print("      Labels:", ", ".join(labels) or "N/A")
+                print("      Milestone:", milestone or "N/A")
+                all_labels.update(labels)
+                if milestone:
+                    all_milestones.add(milestone)
+                n_issues +=1
+                continue
             try:
                 _create_issue(
                 repo=repo,
@@ -143,10 +168,17 @@ def create_issues(path, repo):
                 print(f"[OK!] Created issue for {abs_filename}", file=sys.stderr)
             time.sleep(0.1)
 
+    print("-------")
+    print("Summary")
+    print("-------")
+    created = "Would have created" if dry_run else "Created"
+    print(f"{created} {n_issues} issues")
+    print(f"{created} {len(all_labels)} labels:", *[f" - {label}" for label in sorted(all_labels)], sep="\n")
+    print(f"{created} {len(all_milestones)} milestones:", *[f" - {milestone}" for milestone in sorted(all_milestones)], sep="\n")
 
 def main():
     args = _cli()
-    create_issues(args.directory, args.repo)
+    create_issues(args.directory, args.repo, args.dry_run)
 
 
 if __name__ == "__main__":
