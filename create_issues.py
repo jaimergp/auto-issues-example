@@ -108,10 +108,9 @@ def _create_issue(repo, title, body, labels=(), milestone=None):
 def _cli():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument(
-        "files", 
-        nargs="+", 
-        help="One or more *.md files with a YAML frontmatter. "
-        "Files starting with '_' will be ignored."
+        "directory", 
+        help="Directory containing *.md files with a YAML frontmatter. "
+        "Files starting with '_' will be ignored. It will be recursively scanned."
     )
     p.add_argument(
         "--repo",
@@ -122,31 +121,32 @@ def _cli():
     return p.parse_args()
 
 
-def create_issues(paths, repo):
-    for path in paths:
-        if path.startswith("_"):
-            print("[ i ] Ignoring", path, file=sys.stderr)
-            continue
-        doc = frontmatter.load(path)
-        try:
-            _create_issue(
-            repo=repo,
-            title=doc['title'],
-            milestone=doc.get("milestone"),
-            labels=doc.get("labels", ()),
-            body=doc.content,
-            )
-        except Exception:
-            print(f"[ERR] Could not create issue for {path}!", file=sys.stderr)
-        else:
-            print(f"[OK!] Created issue for {path}", file=sys.stderr)
-
-        time.sleep(0.5)
+def create_issues(path, repo):
+    for dirpath, directories, filenames in os.walk(path):
+        for filename in sorted(filenames):
+            abs_filename = os.path.join(dirpath, filename)
+            if filename.startswith("_"):
+                print("[ i ] Ignoring", abs_filename, file=sys.stderr)
+                continue
+            doc = frontmatter.load(abs_filename)
+            try:
+                _create_issue(
+                repo=repo,
+                title=doc['title'],
+                milestone=doc.get("milestone"),
+                labels=doc.get("labels", ()),
+                body=doc.content,
+                )
+            except Exception:
+                print(f"[ERR] Could not create issue for {abs_filename}!", file=sys.stderr)
+            else:
+                print(f"[OK!] Created issue for {abs_filename}", file=sys.stderr)
+            time.sleep(0.1)
 
 
 def main():
     args = _cli()
-    create_issues(args.files, args.repo)
+    create_issues(args.directory, args.repo)
 
 
 if __name__ == "__main__":

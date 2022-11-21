@@ -1,4 +1,4 @@
-# Create issues from files
+## Create issues from files
 
 Script to create issues with labels and milestones
 from a series of Markdown files with YAML frontmatter.

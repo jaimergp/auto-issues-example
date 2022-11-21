@@ -1,7 +1,0 @@
----
-title:
-milestone:
-labels:
----
-
-Content

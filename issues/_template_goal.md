@@ -1,0 +1,29 @@
+---
+title:
+milestone:
+labels:
+---
+
+## 📌 Summary
+
+...
+
+## 📝 Background
+
+...
+
+## 🚀 Tasks / Deliverables
+
+- [ ] ...
+- [ ] ...
+- [ ] ...
+
+## 📅 Estimated completion
+
+...
+
+## ℹ️ References
+
+- ...
+- ...
+- ...
