@@ -1,9 +1,3 @@
----
-title: Project overview
-milestone:
-labels:
----
-
 ## Transparent, open & sustainable infrastructure for conda-forge and bioconda
 
 The conda-forge and bioconda projects were founded in 2015 in response to frustrations scientific software users consistently faced when attempting to install system package dependencies. Installing open-source software packages with binary dependencies is frequently a multistep process involving an intricate sequence of software compilation. 

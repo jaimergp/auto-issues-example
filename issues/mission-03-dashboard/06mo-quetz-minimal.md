@@ -1,7 +1,7 @@
 ---
 title: Deploy minimal public Quetz instance
 milestone: "6 months"
-labels: [quetz, infra, mission::dashboard]
+labels: [quetz, mission::dashboard]
 ---
 
 ## 📌 Summary

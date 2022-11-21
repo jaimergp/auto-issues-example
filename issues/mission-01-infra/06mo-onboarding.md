@@ -1,7 +1,7 @@
 ---
 title: "Access control: on- and off-boarding core members"
 milestone: "6 months"
-labels: [documentation, task, quansight-labs, mission::infra]
+labels: [documentation, quansight-labs, mission::infra]
 ---
 
 ## 📌 Summary

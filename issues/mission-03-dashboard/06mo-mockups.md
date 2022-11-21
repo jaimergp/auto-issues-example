@@ -1,6 +1,6 @@
 ---
 title: Quetz maintainers dashboard mockups
-milestone: "Dashboard - 6 months"
+milestone: "6 months"
 labels: [UI/UX, quetz, mission::dashboard]
 ---
 

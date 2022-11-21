@@ -1,6 +1,6 @@
 ---
 title: Survey the community for feedstock health metrics ideas
-milestone: "Dashboard - 6 months"
+milestone: "6 months"
 labels: [community, mission::dashboard]
 ---
 

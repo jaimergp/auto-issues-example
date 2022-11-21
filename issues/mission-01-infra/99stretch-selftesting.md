@@ -1,7 +1,7 @@
 ---
 title: Self-testing and self-validation routines for the terraformed infra
 milestone: "Stretch goals"
-labels: [infra, security, mission::infea]
+labels: [security, mission::infra]
 ---
 
 ## 📌 Summary
