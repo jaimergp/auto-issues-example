@@ -1,7 +1,9 @@
 ---
 title: Enabling mirroring capabilities with OCI-based storage
 milestone: null
-labels: [mission]
+labels:
+- "type: mission"
+- "team: quantstack"
 ---
 
 ## 📌 Summary

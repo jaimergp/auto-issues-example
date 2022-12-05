@@ -1,7 +1,8 @@
 ---
 title: Building a maintainers dashboard with Quetz
 milestone: null
-labels: [mission]
+labels:
+- "type: mission"
 ---
 
 ## 📌 Summary

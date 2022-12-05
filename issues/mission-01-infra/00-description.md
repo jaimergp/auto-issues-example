@@ -1,7 +1,9 @@
 ---
 title: Reduce the technical debt in conda-forge infrastructure
 milestone: null
-labels: [mission]
+labels:
+- "type: mission"
+- "team: quansight-labs"
 ---
 
 ## 📌 Summary

@@ -1,7 +1,11 @@
 ---
 title: Self-testing and self-validation routines for the terraformed infra
 milestone: "Stretch goals"
-labels: [security, mission::infra]
+labels:
+- "area: security"
+- "mission: infra"
+- "team: quansight-labs"
+- "type: stretch"
 ---
 
 ## 📌 Summary

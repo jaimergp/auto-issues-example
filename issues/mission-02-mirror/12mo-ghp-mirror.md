@@ -1,7 +1,10 @@
 ---
 title: Run a scalable mirror of conda-forge on GitHub packages.
 milestone: "12 months"
-labels: [oci, mission::mirror]
+labels:
+- "area: oci"
+- "mission: mirror"
+- "team: quantstack"
 ---
 
 ## 📌 Summary

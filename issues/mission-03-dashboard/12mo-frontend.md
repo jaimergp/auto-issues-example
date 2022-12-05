@@ -1,7 +1,10 @@
 ---
 title: Implement dashboard interface on Quetz
 milestone: "12 months"
-labels: [quetz, UI/UX, mission::dashboard]
+labels: 
+- "area: quetz"
+- "area: UI/UX"
+- "mission: dashboard"
 ---
 
 ## 📌 Summary

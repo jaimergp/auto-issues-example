@@ -24,6 +24,7 @@ import argparse
 import os
 import sys
 import time
+from collections import defaultdict
 from functools import lru_cache
 
 import requests
@@ -129,8 +130,8 @@ def _cli():
 def create_issues(path, repo, dry_run=True):
     if not repo and not dry_run:
         raise ValueError("'repo' must be set unless 'dry_run' is True")
-    all_labels = set()
-    all_milestones = set()
+    all_labels = defaultdict(int)
+    all_milestones = defaultdict(int)
     n_issues = 0
     for dirpath, directories, filenames in os.walk(path):
         for filename in sorted(filenames):
@@ -149,9 +150,10 @@ def create_issues(path, repo, dry_run=True):
                 print("      Title:", doc['title'])
                 print("      Labels:", ", ".join(labels) or "N/A")
                 print("      Milestone:", milestone or "N/A")
-                all_labels.update(labels)
+                for label in labels:
+                    all_labels[label] += 1
                 if milestone:
-                    all_milestones.add(milestone)
+                    all_milestones[milestone] += 1
                 n_issues +=1
                 continue
             try:
@@ -173,8 +175,8 @@ def create_issues(path, repo, dry_run=True):
     print("-------")
     created = "Would have created" if dry_run else "Created"
     print(f"{created} {n_issues} issues")
-    print(f"{created} {len(all_labels)} labels:", *[f" - {label}" for label in sorted(all_labels)], sep="\n")
-    print(f"{created} {len(all_milestones)} milestones:", *[f" - {milestone}" for milestone in sorted(all_milestones)], sep="\n")
+    print(f"{created} {len(all_labels)} labels:", *[f" - {label} ({count})" for label, count in sorted(all_labels.items())], sep="\n")
+    print(f"{created} {len(all_milestones)} milestones:", *[f" - {milestone} ({count})" for milestone, count in sorted(all_milestones.items())], sep="\n")
 
 def main():
     args = _cli()

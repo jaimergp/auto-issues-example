@@ -1,7 +1,11 @@
 ---
 title: Design and implement a database for the conda-forge graph and relevant metadata
 milestone: "12 months"
-labels: [data, documentation, mission::infra]
+labels:
+- "area: data"
+- "area: documentation" 
+- "mission: infra"
+- "team: quansight-labs"
 ---
 
 ## 📌 Summary

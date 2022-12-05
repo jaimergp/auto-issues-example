@@ -1,7 +1,10 @@
 ---
 title: First round of recovery/security improvements on infrastructure
 milestone: "12 months"
-labels: [mission::infra]
+labels:
+- "area: devops"
+- "mission: infra"
+- "team: quansight-labs"
 ---
 
 ## 📌 Summary

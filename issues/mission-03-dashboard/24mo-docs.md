@@ -1,7 +1,10 @@
 ---
 title: Thorough documentation for maintainers dashboard
 milestone: "24 months"
-labels: [quetz, documentation, mission::dashboard]
+labels: 
+- "area: quetz"
+- "area: documentation"
+- "mission: dashboard"
 ---
 
 ## 📌 Summary

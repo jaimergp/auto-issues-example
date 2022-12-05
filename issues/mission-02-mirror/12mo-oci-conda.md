@@ -1,7 +1,11 @@
 ---
 title: Add OCI registry support in conda/mamba
 milestone: "12 months"
-labels: [oci, upstream, mission::mirror]
+labels:
+- "area: oci"
+- "area: upstream"
+- "mission: mirror"
+- "team: quantstack"
 ---
 
 ## 📌 Summary

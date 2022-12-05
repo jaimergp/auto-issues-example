@@ -1,7 +1,10 @@
 ---
 title: Improve security, performance, reliability and developer experience on conda-forge bots
 milestone: "18 months"
-labels: [mission::infra, security]
+labels:
+- "mission: infra"
+- "area: security"
+- "team: quansight-labs"
 ---
 
 ## 📌 Summary

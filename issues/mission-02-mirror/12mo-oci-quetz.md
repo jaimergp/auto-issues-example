@@ -1,7 +1,12 @@
 ---
 title: OCI-Quetz integrations
 milestone: "12 months"
-labels: [quetz, oci, mission::dashboard, mission::mirror]
+labels:
+- "area: quetz"
+- "area: oci"
+- "mission: dashboard"
+- "mission: mirror"
+- "team: quantstack"
 ---
 
 ## 📌 Summary

@@ -1,7 +1,10 @@
 ---
 title: Finalize migration to Terraform
 milestone: "24 months"
-labels: [mission::infra]
+labels:
+- "mission: infra"
+- "area: devops"
+- "team: quansight-labs"
 ---
 
 ## 📌 Summary

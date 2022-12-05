@@ -1,9 +1,11 @@
 ---
 title: Timeline view in Quetz
 milestone: "Stretch goals"
-labels: [quetz, mission::dashboard]
+labels: 
+- "area: quetz"
+- "mission: dashboard"
+- "type: stretch"
 ---
-
 
 ## 📌 Summary
 

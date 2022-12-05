@@ -1,7 +1,11 @@
 ---
 title: Implement sigstore (or equivalent) in conda/mamba
 milestone: "Stretch goals"
-labels: [security, upstream]
+labels:
+- "area: security"
+- "area: upstream"
+- "type: stretch"
+- "team: quantstack"
 ---
 
 ## 📌 Summary

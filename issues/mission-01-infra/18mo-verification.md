@@ -1,7 +1,10 @@
 ---
 title: Enhancements to feedstocks' verification and validation workflows
 milestone: "18 months"
-labels: [mission::infra, security]
+labels:
+- "mission: infra"
+- "area: security"
+- "team: quansight-labs"
 ---
 
 Primarily focused on performance and reliability.

@@ -1,7 +1,11 @@
 ---
 title: Improve/adopt DevSecOps practices
 milestone: "24 months"
-labels: [mission::infra, security]
+labels: 
+- "mission: infra"
+- "area: security"
+- "area: devops"
+- "team: quansight-labs"
 ---
 
 

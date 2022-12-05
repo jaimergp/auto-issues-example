@@ -1,7 +1,11 @@
 ---
 title: Audit of the current infrastructure, tooling, and credentials
 milestone: "6 months"
-labels: [documentation, security, quansight-labs, mission::infra]
+labels:
+- "area: documentation"
+- "area: security"
+- "team: quansight-labs"
+- "mission: infra"
 ---
 
 ## 📌 Summary

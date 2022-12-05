@@ -1,7 +1,9 @@
 ---
 title: Review and add needed Quetz plugins for the backend
 milestone: "12 months"
-labels: [quetz, mission::dashboard]
+labels:
+- "area: quetz"
+- "mission: dashboard"
 ---
 
 ## 📌 Summary

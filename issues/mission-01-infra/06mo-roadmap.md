@@ -1,7 +1,11 @@
 ---
 title: Generate public roadmap for infrastructure and database migrations
 milestone: "6 months"
-labels: [documentation, data, quansight-labs, mission::infra]
+labels:
+- "area: documentation"
+- "area: data"
+- "team: quansight-labs"
+- "mission: infra"
 ---
 
 
