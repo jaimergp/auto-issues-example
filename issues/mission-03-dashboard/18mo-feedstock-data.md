@@ -1,7 +1,7 @@
 ---
 title: Show feedstock/repository data in Quetz
 milestone: "18 months"
-labels: 
+labels:
 - "area: quetz"
 - "area: data"
 - "mission: dashboard"

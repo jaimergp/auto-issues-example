@@ -49,7 +49,7 @@ def _gh_request(method, url, **kwargs):
     )
     if GITHUB_BASE_URL not in url:
         url = f"{GITHUB_BASE_URL}{url}"
-    
+
     r = requests.request(method, url, **kwargs)
     r.raise_for_status()
     return r
@@ -57,15 +57,12 @@ def _gh_request(method, url, **kwargs):
 
 @lru_cache(maxsize=0)
 def _ensure_label(repo, label):
-    r = _gh_request(
-        "get",
-        f"/repos/{repo}/labels"
-    )
+    r = _gh_request("get", f"/repos/{repo}/labels")
 
     for remote_label in r.json():
         if label.lower() == remote_label["name"].lower():
             return remote_label["name"]
-    
+
     r = _gh_request(
         "post",
         f"/repos/{repo}/labels",
@@ -76,15 +73,12 @@ def _ensure_label(repo, label):
 
 @lru_cache(maxsize=0)
 def _ensure_milestone(repo, milestone):
-    r = _gh_request(
-        "get",
-        f"/repos/{repo}/milestones"
-    )
+    r = _gh_request("get", f"/repos/{repo}/milestones")
 
     for remote_milestone in r.json():
         if milestone.lower() == remote_milestone["title"].lower():
             return remote_milestone["number"]
-    
+
     r = _gh_request(
         "post",
         f"/repos/{repo}/milestones",
@@ -93,13 +87,13 @@ def _ensure_milestone(repo, milestone):
     return r.json()["number"]
 
 
-def _create_issue(repo, title, body, labels=(), milestone=None):    
+def _create_issue(repo, title, body, labels=(), milestone=None):
     data = {"title": title, "body": body}
     if milestone is not None:
         data["milestone"] = milestone_number = _ensure_milestone(repo, milestone)
         data["body"] = body.replace(
             "__MILESTONE_URL__",
-            f"https://github.com/{repo}/milestone/{milestone_number}"
+            f"https://github.com/{repo}/milestone/{milestone_number}",
         )
     if labels:
         data["labels"] = [_ensure_label(repo, label) for label in (labels or ())]
@@ -114,20 +108,20 @@ def _create_issue(repo, title, body, labels=(), milestone=None):
 def _cli():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument(
-        "directory", 
+        "directory",
         help="Directory containing *.md files with a YAML frontmatter. "
-        "Files starting with '_' will be ignored. It will be recursively scanned."
+        "Files starting with '_' will be ignored. It will be recursively scanned.",
     )
     p.add_argument(
         "--repo",
         default=None,
         help="Github repository where issues must be created. "
-        "Must follow format <owner>/<repo>. Not required if --dry_run is used."
+        "Must follow format <owner>/<repo>. Not required if --dry_run is used.",
     )
     p.add_argument(
-        '--dry-run',
+        "--dry-run",
         action="store_true",
-        help="Do not create issues, labels or milestones, but list some stats."
+        help="Do not create issues, labels or milestones, but list some stats.",
     )
     return p.parse_args()
 
@@ -142,38 +136,38 @@ def create_issues(path, repo, dry_run=True):
         for filename in sorted(filenames):
             abs_filename = os.path.join(dirpath, filename)
             if filename.startswith("_"):
-                print(f"[ i ] Ignoring '{abs_filename}' (starts with underscore)", file=sys.stderr)
+                print(f"[ i ] Ignoring '{abs_filename}' (starts with underscore)")
                 continue
             doc = frontmatter.load(abs_filename)
             if not doc.metadata:
-                print(f"[ i ] Ignoring '{abs_filename}' (no frontmatter)", file=sys.stderr)
+                print(f"[ i ] Ignoring '{abs_filename}' (no frontmatter)")
                 continue
             if dry_run:
                 print(f"[ i ] Would create issue for '{abs_filename}'.")
                 labels = doc.get("labels") or ()
                 milestone = doc.get("milestone")
-                print("      Title:", doc['title'])
+                print("      Title:", doc["title"])
                 print("      Labels:", ", ".join(labels) or "N/A")
                 print("      Milestone:", milestone or "N/A")
                 for label in labels:
                     all_labels[label] += 1
                 if milestone:
                     all_milestones[milestone] += 1
-                n_issues +=1
+                n_issues += 1
                 continue
             try:
                 _create_issue(
-                repo=repo,
-                title=doc['title'],
-                milestone=doc.get("milestone"),
-                labels=doc.get("labels", ()),
-                body=doc.content,
+                    repo=repo,
+                    title=doc["title"],
+                    milestone=doc.get("milestone"),
+                    labels=doc.get("labels", ()),
+                    body=doc.content,
                 )
             except Exception as exc:
-                print(f"[ERR] Could not create issue for {abs_filename}!", file=sys.stderr)
+                print(f"[ERR] Could not create issue for {abs_filename}!")
                 traceback.print_exc()
             else:
-                print(f"[OK!] Created issue for {abs_filename}", file=sys.stderr)
+                print(f"[OK!] Created issue for {abs_filename}")
             time.sleep(0.1)
 
     print("-------")
@@ -181,8 +175,20 @@ def create_issues(path, repo, dry_run=True):
     print("-------")
     created = "Would have created" if dry_run else "Created"
     print(f"{created} {n_issues} issues")
-    print(f"{created} {len(all_labels)} labels:", *[f" - {label} ({count})" for label, count in sorted(all_labels.items())], sep="\n")
-    print(f"{created} {len(all_milestones)} milestones:", *[f" - {milestone} ({count})" for milestone, count in sorted(all_milestones.items())], sep="\n")
+    print(
+        f"{created} {len(all_labels)} labels:",
+        *[f" - '{label}' ({count})" for label, count in sorted(all_labels.items())],
+        sep="\n",
+    )
+    print(
+        f"{created} {len(all_milestones)} milestones:",
+        *[
+            f" - '{milestone}' ({count})"
+            for milestone, count in sorted(all_milestones.items())
+        ],
+        sep="\n",
+    )
+
 
 def main():
     args = _cli()

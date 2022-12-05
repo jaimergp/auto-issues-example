@@ -1,7 +1,7 @@
 ---
 title: Improve/adopt DevSecOps practices
 milestone: "24 months"
-labels: 
+labels:
 - "mission: infra"
 - "area: security"
 - "area: devops"

@@ -10,7 +10,7 @@ labels:
 ## 📌 Summary
 
 Initial improvements to the conda-forge infrastructure as detailed in the public
-roadmap focusing on critical performance and security risks. 
+roadmap focusing on critical performance and security risks.
 
 ## 📝 Background
 

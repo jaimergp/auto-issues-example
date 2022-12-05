@@ -1,10 +1,10 @@
 ## Transparent, open & sustainable infrastructure for conda-forge and bioconda
 
-The conda-forge and bioconda projects were founded in 2015 in response to frustrations scientific software users consistently faced when attempting to install system package dependencies. Installing open-source software packages with binary dependencies is frequently a multistep process involving an intricate sequence of software compilation. 
-The emergence of conda-forge massively reduced the scientific packaging toil by building on transparency, automation, compatibility and open-source principles. 
+The conda-forge and bioconda projects were founded in 2015 in response to frustrations scientific software users consistently faced when attempting to install system package dependencies. Installing open-source software packages with binary dependencies is frequently a multistep process involving an intricate sequence of software compilation.
+The emergence of conda-forge massively reduced the scientific packaging toil by building on transparency, automation, compatibility and open-source principles.
 As a result, its community has grown exponentially, as has the number of artifacts hosted and downloaded (~18 thousand packages hosted and ~300 million package downloads/month).
 
-Such growth has significantly increased the pressure on its underlying infrastructure, tooling, and maintainers' workflow. 
+Such growth has significantly increased the pressure on its underlying infrastructure, tooling, and maintainers' workflow.
 Besides, this entire infrastructure and community solely rely on the anaconda.org service as a hosting provider.
 
 This project aims to improve the long-term sustainability of the conda-forge/bioconda projects and their ecosystem through three main work items or missions.

@@ -1,7 +1,7 @@
 ---
 title: Finalize oras-py implementation
 milestone: "12 months"
-labels: 
+labels:
 - "area: upstream"
 - "mission: mirror"
 - "team: quantstack"

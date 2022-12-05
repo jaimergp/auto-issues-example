@@ -3,7 +3,7 @@ title: Design and implement a database for the conda-forge graph and relevant me
 milestone: "12 months"
 labels:
 - "area: data"
-- "area: documentation" 
+- "area: documentation"
 - "mission: infra"
 - "team: quansight-labs"
 ---
@@ -17,7 +17,7 @@ data schema and schema validation.
 
 The metadata supporting the diverse automations at conda-forge is made of a number of repositories that serve JSON files in a given directory structure.
 
-Depending on the tool, the metadata will be used to build a graph. 
+Depending on the tool, the metadata will be used to build a graph.
 This data is downloaded, and the graph recreated, every time the job runs, adding to substantial overhead as conda-forge grows.
 
 Other tools depend on a different presentation of the metadata, and are supported a different repository.

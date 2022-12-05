@@ -12,7 +12,7 @@ labels:
 
 The goal is to audit and document existing conda-forge's infrastructure.
 
-> This will be done in public. 
+> This will be done in public.
 > We need to ensure no critical security details such as credentials are exposed.
 
 ## 📝 Background

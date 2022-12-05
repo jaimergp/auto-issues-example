@@ -19,7 +19,7 @@ conda-forge.org/status offers a "maintainers dashboard" with information about:
 - Ongoing migrations (collection of PRs automatically issued by the bots)
 - Communication about known incidents
 
-This panel has grown organically over the years without significant UX or accessibility analysis. 
+This panel has grown organically over the years without significant UX or accessibility analysis.
 We will provide mockups that offer the same functionality with a consistent UI informed by best practices in UX and accessibility.
 
 ## 🚀 Tasks / Deliverables

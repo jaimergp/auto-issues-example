@@ -18,7 +18,7 @@ At this point, the infrastructure should have accumulated enough improvements wi
 Finalizing its migration to Terraform or similar will help us with provisioning, scalability, recovery and risk aversion.
 
 Having this goal in the 24 months milestone does _not_ mean it should only start in the last six months of the project,
-rather than it should be completed by this time. 
+rather than it should be completed by this time.
 
 ## 🚀 Tasks / Deliverables
 

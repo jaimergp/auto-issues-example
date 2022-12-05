@@ -9,10 +9,10 @@ The frontmatter schema is:
 title: str.
     Title of the issue.
 labels: list of str.
-    Labels to assign to the issue. They will be created 
+    Labels to assign to the issue. They will be created
     if they don't exist.
 milestone: str.
-    Name of the milestone to assign to the issue. 
+    Name of the milestone to assign to the issue.
     It will be created if it does not exist.
 ```
 
@@ -24,5 +24,5 @@ milestone: str.
 
 ## Tokens
 
-Create a personal access token with `read&write` issue permissions in
-the target repo and export it as `GITHUB_PAT`.
+Create a personal access token with `read&write` issue and pull_request
+permissions in the target repo and export it as `GITHUB_PAT`.
