@@ -34,7 +34,7 @@ On top of that, we will make it easier to for newcomers to contribute to the val
 
 ## 📅 Estimated completion
 
-This task should be completed within the first 18 months
+This task should be finished in the first [18 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

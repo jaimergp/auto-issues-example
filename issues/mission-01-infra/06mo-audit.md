@@ -36,7 +36,7 @@ Expected challenges:
 
 ## 📅 Estimated completion
 
-This goal should be finished in the first six months.
+This task should be finished in the first [six months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

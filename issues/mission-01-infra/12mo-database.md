@@ -35,7 +35,7 @@ This is not sustainable or considerate with the available resources, and we woul
 
 ## 📅 Estimated completion
 
-This set of tasks should be finished within the first 12 months.
+This task should be finished in the first [12 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

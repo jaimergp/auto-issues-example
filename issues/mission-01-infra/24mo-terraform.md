@@ -26,7 +26,7 @@ rather than it should be completed by this time.
 
 ## 📅 Estimated completion
 
-This task should be finished by the end of the project (24 months).
+This task should be done by the end of the project ([24 months](__MILESTONE_URL__)).
 
 ## ℹ️ References
 

@@ -25,7 +25,7 @@ The idea is to have a running instance that the team can use to iterate on the p
 
 ## 📅 Estimated completion
 
-This task should be finished within the first six months.
+This task should be finished in the first [six months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

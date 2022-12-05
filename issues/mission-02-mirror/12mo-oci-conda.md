@@ -26,7 +26,7 @@ The tooling has to learn how to "speak" to it.
 
 ## 📅 Estimated completion
 
-This task should be completed within the first 12 months.
+This task should be finished in the first [12 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

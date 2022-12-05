@@ -26,7 +26,6 @@ Having a detailed picture of the infrastructure and automation tools will signif
 Quetz is chosen as an open-source server for hosting conda packages, thus allowing for increased transparency and extensibility. 
 This would have the added benefit of centralizing the currently scattered-across-repositories packaging metadata in a canonical, API-first, performant-at-scale database, laying the foundation for further infrastructure automation and improvements to the building processes.
 
-
 ## 🚀 Tasks / Deliverables
 
 > See issues labeled as `mission::dashboard`

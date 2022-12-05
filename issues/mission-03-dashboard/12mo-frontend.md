@@ -24,7 +24,7 @@ The needed UI elements need to be designed and implemented in the Quetz frontend
 
 ## 📅 Estimated completion
 
-This task should be finished within the first 12 months.
+This task should be finished in the first [12 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

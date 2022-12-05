@@ -24,7 +24,7 @@ We will tackle this by adopting practices borrowed from DevSecOps approaches.
 
 ## 📅 Estimated completion
 
-This task should be done by the end of the project (24 months).
+This task should be done by the end of the project ([24 months](__MILESTONE_URL__)).
 
 ## ℹ️ References
 

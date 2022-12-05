@@ -32,7 +32,7 @@ To inform what content should be displayed in the dashbaord, we would like ti su
 
 ## 📅 Estimated completion
 
-This task should be completed within the first six months.
+This task should be finished in the first [six months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

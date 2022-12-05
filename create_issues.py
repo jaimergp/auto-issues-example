@@ -17,13 +17,14 @@ The frontmatter schema is:
 - requests.
 - python-frontmatter.
 
-Create a personal access token with read&write issue permissions in
-the target repo and export it as `GITHUB_PAT`.
+Create a personal access token with read&write issue and pull_request
+permissions in the target repo and export it as `GITHUB_PAT`.
 """
 import argparse
 import os
 import sys
 import time
+import traceback
 from collections import defaultdict
 from functools import lru_cache
 
@@ -95,7 +96,11 @@ def _ensure_milestone(repo, milestone):
 def _create_issue(repo, title, body, labels=(), milestone=None):    
     data = {"title": title, "body": body}
     if milestone is not None:
-        data["milestone"] = _ensure_milestone(repo, milestone)
+        data["milestone"] = milestone_number = _ensure_milestone(repo, milestone)
+        data["body"] = body.replace(
+            "__MILESTONE_URL__",
+            f"https://github.com/{repo}/milestone/{milestone_number}"
+        )
     if labels:
         data["labels"] = [_ensure_label(repo, label) for label in (labels or ())]
 
@@ -164,8 +169,9 @@ def create_issues(path, repo, dry_run=True):
                 labels=doc.get("labels", ()),
                 body=doc.content,
                 )
-            except Exception:
+            except Exception as exc:
                 print(f"[ERR] Could not create issue for {abs_filename}!", file=sys.stderr)
+                traceback.print_exc()
             else:
                 print(f"[OK!] Created issue for {abs_filename}", file=sys.stderr)
             time.sleep(0.1)

@@ -26,7 +26,7 @@ Quetz should be able to list packages uploaded to OCI servers as done with Anaco
 
 ## 📅 Estimated completion
 
-This task should be completed within the first 12 months.
+This task should be finished in the first [12 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

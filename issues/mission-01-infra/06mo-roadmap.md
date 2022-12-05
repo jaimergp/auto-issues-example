@@ -28,7 +28,7 @@ We aim to minimize unplanned disruptions and let conda-forge operate as usual.
 
 ## 📅 Estimated completion
 
-...
+This task should be finished in the first [six months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

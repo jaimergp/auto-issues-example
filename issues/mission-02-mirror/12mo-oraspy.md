@@ -22,7 +22,7 @@ In order to leverage OCI-based artifacts in the conda ecosystem, this library wi
 
 ## 📅 Estimated completion
 
-This goal should be completed in the first 12 months.
+This task should be finished in the first [12 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 

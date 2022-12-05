@@ -31,7 +31,7 @@ The UI/UX team will have provided modern mockups that account for accessibility.
 
 ## 📅 Estimated completion
 
-This task should be finished within the first 18 months.
+This task should be finished in the first [18 months](__MILESTONE_URL__).
 
 ## ℹ️ References
 
