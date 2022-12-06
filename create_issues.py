@@ -142,28 +142,28 @@ def create_issues(path, repo, dry_run=True):
             if not doc.metadata:
                 print(f"[ i ] Ignoring '{abs_filename}' (no frontmatter)")
                 continue
+            labels = doc.get("labels") or ()
+            milestone = doc.get("milestone")
+            for label in labels:
+                all_labels[label] += 1
+            if milestone:
+                all_milestones[milestone] += 1
+            n_issues += 1
             if dry_run:
                 print(f"[ i ] Would create issue for '{abs_filename}'.")
-                labels = doc.get("labels") or ()
-                milestone = doc.get("milestone")
                 print("      Title:", doc["title"])
                 print("      Labels:", ", ".join(labels) or "N/A")
                 print("      Milestone:", milestone or "N/A")
-                for label in labels:
-                    all_labels[label] += 1
-                if milestone:
-                    all_milestones[milestone] += 1
-                n_issues += 1
                 continue
             try:
                 _create_issue(
                     repo=repo,
                     title=doc["title"],
-                    milestone=doc.get("milestone"),
-                    labels=doc.get("labels", ()),
+                    milestone=milestone,
+                    labels=labels,
                     body=doc.content,
                 )
-            except Exception as exc:
+            except Exception:
                 print(f"[ERR] Could not create issue for {abs_filename}!")
                 traceback.print_exc()
             else:
